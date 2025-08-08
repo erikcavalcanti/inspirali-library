@@ -1,0 +1,114 @@
+/* Button Variants */
+.button--secondary {
+  background-color: transparent;
+  color: #007cba;
+  border: 2px solid #007cba;
+}
+
+.button--secondary:hover {
+  background-color: #007cba;
+  color: white;
+}
+
+.button--danger {
+  background-color: #d73502;
+}
+
+.button--danger:hover {
+  background-color: #b02a00;
+}
+
+.button--success {
+  background-color: #28a745;
+}
+
+.button--success:hover {
+  background-color: #218838;
+}
+
+/* Button Sizes */
+.button--small {
+  padding: 8px 16px;
+  font-size: 14px;
+  min-width: 80px;
+}
+
+.button--large {
+  padding: 16px 32px;
+  font-size: 18px;
+  min-width: 160px;
+}
+
+/* Button with Icon */
+.button--with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.button__icon--download::before {
+  content: "";
+}
+
+.button__icon--external::before {
+  content: "—";
+}
+
+.button__icon--arrow::before {
+  content: "’";
+}
+
+.button__icon--check::before {
+  content: "";
+}
+
+/* Loading State */
+.button[data-loading="true"] {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.button__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: button-spin 1s linear infinite;
+}
+
+.button[data-loading="true"] .button__spinner {
+  color: white;
+}
+
+.button--secondary[data-loading="true"] .button__spinner {
+  color: #007cba;
+}
+
+@keyframes button-spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Disabled State */
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button:disabled:hover {
+  background-color: inherit;
+  transform: none;
+  box-shadow: none;
+}
